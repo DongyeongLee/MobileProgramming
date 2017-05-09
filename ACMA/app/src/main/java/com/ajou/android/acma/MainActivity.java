@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity { // AppCompat version gradle 참고 - recyclerview때문에 수정함
 
     Student mStudent;
     TextView mGreetingTextView;
@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonClicked(View view) {
         switch (view.getId()) {
             case R.id.lectureRegisterButton :
-                System.out.println("수강신청");
+                Intent intent = new Intent(this, LectureListActivity.class);
+                startActivity(intent);
                 break;
             case R.id.lectureRankingButton :
                 System.out.println("강의랭킹");
                 break;
-
             case R.id.timetableButton :
                 System.out.println("시간표");
                 break;

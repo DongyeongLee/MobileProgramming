@@ -1,9 +1,9 @@
 package com.ajou.android.acma;
 
 public class Student {
-    private String id;
-    private String password;
-    private String name;
+    private String id; // id-이메일 형식
+    private String password; // 비밀번호
+    private String name; // 이름
     private int grade;  // 1, 2, 3, 4
     private int sex;    // 0 - male, 1 - female
 
