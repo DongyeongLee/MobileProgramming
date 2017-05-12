@@ -45,11 +45,11 @@ public class LectureLab {
     }
 
     private void createLectures() {
-        Lecture MP = new Lecture("mobileprogramming", "소셜미디어전공", "경민호", "M012", "산419", "월A수A", 40, 4);
+        Lecture MP = new Lecture("모바일프로그래밍", "소셜미디어전공", "경민호", "M012", "산419", "월A수A", 40, 4);
         mLectures.add(MP);
         Lecture CN = new Lecture("컴퓨터네트워크", "소프트웨어전공", "노병희", "F012", "팔309", "월B수B", 100, 3);
         mLectures.add(CN);
-        Lecture OS = new Lecture("운영체제", "소프트웨어전공", "김재훈", "F013", "팔309", "월C수C", 90, 3);
+        Lecture OS = new Lecture("운영체제", "소프트웨어전공", "김재훈", "F052", "팔309", "월C수C", 90, 3);
         mLectures.add(OS);
         Lecture DC = new Lecture("디지털회로", "소프트웨어전공", "최영준", "F014", "팔410", "월D수D", 30, 4);
         mLectures.add(DC);

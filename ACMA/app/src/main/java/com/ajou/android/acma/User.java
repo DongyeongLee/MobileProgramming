@@ -1,10 +1,6 @@
 package com.ajou.android.acma;
 
-/**
- * Created by LDY on 2017-05-12.
- */
-
-class User {
+public class User {
 
     public String Major;
     public String Gender;

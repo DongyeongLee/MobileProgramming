@@ -26,6 +26,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
     private Button buttonDelete;
+    private Button buttonLectureRegister;
+    private Button buttonMyLectureList;
+    private Button buttonLectureRanking;
+    private Button buttonTimetable;
 
 
     @Override
@@ -36,6 +40,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserEmail = (TextView) findViewById(R.id.textviewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
+        buttonLectureRegister = (Button)findViewById(R.id.LectureRegister);
+        buttonMyLectureList = (Button)findViewById(R.id.MyLectureList);
+        buttonLectureRanking = (Button)findViewById(R.id.LectureRanking);
+        buttonTimetable = (Button)findViewById(R.id.Timetable);
 
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() == null) {
@@ -50,7 +58,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //logout button event
         buttonLogout.setOnClickListener(this);
         buttonDelete.setOnClickListener(this);
-
+        buttonLectureRegister.setOnClickListener(this);
+        buttonMyLectureList.setOnClickListener(this);
+        buttonLectureRanking.setOnClickListener(this);
+        buttonTimetable.setOnClickListener(this);
     }
 
     @Override
@@ -88,10 +99,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 alert_confirm.show();
                 break;
             case R.id.LectureRegister:
-             //   Intent intent = new Intent(this, LectureListActivity.class);
-               // startActivity(intent);
+                Intent intent = new Intent(this, LectureListActivity.class);
+                startActivity(intent);
                 break;
-            case R.id.LectureList:
+            case R.id.MyLectureList:
                 break;
             case R.id.LectureRanking:
                 break;
@@ -100,6 +111,4 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         }
     }
-
-
 }

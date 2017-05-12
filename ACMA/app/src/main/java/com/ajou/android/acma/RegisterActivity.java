@@ -72,11 +72,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-   /* private void writeNewUser(String userID, String userName, String userMajor, String userGender, String userGrade){
-        User user = new User(userName, userMajor, userGender, userGrade);
-        databaseReference.child("users").child(userID).setValue(user);
-    }*/
-
    private void writeNewUser(String userID, String userName, String userMajor, String userGender, String userGrade){
        User user = new User(userName, userMajor, userGender, userGrade);
        databaseReference.child("users").child(userID).setValue(user);

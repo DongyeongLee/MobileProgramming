@@ -80,8 +80,8 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"/>
         <Button
-            android:id="@+id/LectureList"
-            android:text="강의목록"
+            android:id="@+id/MyLectureList"
+            android:text="신청현황"
             android:layout_gravity="center_horizontal"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
@@ -92,7 +92,7 @@
             android:layout_weight="1"/>
         <Button
             android:id="@+id/LectureRanking"
-            android:text="강의목록"
+            android:text="강의순위"
             android:layout_gravity="center_horizontal"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
