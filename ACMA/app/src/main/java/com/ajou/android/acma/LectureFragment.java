@@ -1,9 +1,11 @@
 package com.ajou.android.acma;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,11 +74,8 @@ public class LectureFragment extends Fragment{
         lec_time_TV.setText(mLecture.getTime());
         lec_maxNum_TV.setText(""+mLecture.getMaxNum());
         lec_num_TV.setText(""+mLecture.getNum());
-
-
         /*
         중요!!
-        신청하기 버튼 눌렀을때 해줘야 하는 동작
             실제 Lecture의 신청자수 1 증가 -> LectureList에선 updateUI로 전체 강의 리스트를 갱신 --> DB연동하면 다른곳에서도 증가시 update
             LectureFragment 에서 신청자수 1 증가
             토스트 출력
@@ -86,12 +85,26 @@ public class LectureFragment extends Fragment{
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLecture.setNum(mLecture.getNum() + 1);
-                lec_num_TV.setText(""+mLecture.getNum());
-                Toast.makeText(getActivity(), mLecture.getName() + " 이(가) 수강신청 되었습니다.", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(getActivity())
+                        .setMessage(mLecture.getName() + " 을(를) 수강신청 하시겠습니까?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mLecture.setNum(mLecture.getNum() + 1);
+                                lec_num_TV.setText(""+mLecture.getNum());
+                                Toast.makeText(getActivity(), mLecture.getName() + " 이(가) 수강신청 되었습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .create().show();
             }
         });
-
         return v;
     }
 }
