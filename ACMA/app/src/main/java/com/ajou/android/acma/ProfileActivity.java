@@ -78,6 +78,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                String DeleteID = firebaseAuth.getCurrentUser().getEmail();
+                                String result = DeleteID.replaceAll("[.]","");
+                                DatabaseManager.databaseReference.child("users").child(result).removeValue();
                                 user.delete()
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

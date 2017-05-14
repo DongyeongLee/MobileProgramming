@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_height="match_parent"
      android:layout_width="match_parent"
+     android:background="@color/WHITE"
      android:orientation="vertical">
 
     <RelativeLayout
@@ -16,8 +17,11 @@
             android:id="@+id/searchET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:hint="@string/hint"/>
+            android:gravity="center"
+            android:background="@color/WHITE"
+            android:hint="@string/hint"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
         <Button
             android:id="@+id/searchButton"
             style="@style/Widget.AppCompat.Button.Colored"
@@ -31,6 +35,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lecture_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary" />
 
 </LinearLayout>

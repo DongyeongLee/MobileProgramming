@@ -37,8 +37,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     RadioButton selectedGender;
     RadioButton selectedGrade;
 
-    DatabaseReference databaseReference;
-
     private String userID, userPassword, userName, userMajor, userGender, userGrade, result;
 
     @Override
@@ -47,8 +45,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
         if (firebaseAuth.getCurrentUser() != null){
             finish();
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
@@ -74,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
    private void writeNewUser(String userID, String userName, String userMajor, String userGender, String userGrade){
        User user = new User(userName, userMajor, userGender, userGrade);
-       databaseReference.child("users").child(userID).setValue(user);
+       DatabaseManager.databaseReference.child("users").child(userID).setValue(user);
    }
 
     private void registerUser() {

@@ -77,9 +77,10 @@ public class LectureListFragment extends Fragment {
 
         private Lecture mLecture;
         public TextView mNameTV;
-        public TextView mCodeTV;
         public TextView mProfessorTV;
         public TextView mMajorTV;
+        public TextView mCodeTV;
+        public TextView mNumTV;
 
         public LectureHolder(View itemView) {
             super(itemView);
@@ -89,6 +90,7 @@ public class LectureListFragment extends Fragment {
             mCodeTV = (TextView) itemView.findViewById(R.id.item_code_TV);
             mProfessorTV = (TextView) itemView.findViewById(R.id.item_professor_TV);
             mMajorTV = (TextView) itemView.findViewById(R.id.item_major_TV);
+            mNumTV = (TextView) itemView.findViewById(R.id.item_num_TV);
         }
 
         public void bindLecture(Lecture lecture) {
@@ -97,6 +99,7 @@ public class LectureListFragment extends Fragment {
             mCodeTV.setText(mLecture.getCode());
             mProfessorTV.setText(mLecture.getProfessor());
             mMajorTV.setText(mLecture.getMajor());
+            mNumTV.setText(mLecture.getNum() + " / " + mLecture.getMaxNum());
         }
 
         @Override

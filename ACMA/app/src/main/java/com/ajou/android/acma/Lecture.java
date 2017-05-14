@@ -1,5 +1,7 @@
 package com.ajou.android.acma;
 
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -7,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.UUID;
+import java.util.zip.Inflater;
 
 public class Lecture {
     private UUID uuid;
@@ -20,8 +23,6 @@ public class Lecture {
     private long num; // 신청인원
     private int grade; // 학점
 
-    private DatabaseReference databaseReference;
-
     public Lecture(String name, String major, String professor, String code,
                    String location, String time, int maxNum, int grade) {
         this.uuid = UUID.randomUUID();
@@ -32,18 +33,7 @@ public class Lecture {
         this.location = location;
         this.time = time;
         this.maxNum = maxNum;
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("lectures").child(this.code).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Lecture.this.num = (Long) dataSnapshot.getValue();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        setNum();
         this.grade = grade;
     }
 
@@ -87,7 +77,19 @@ public class Lecture {
         return grade;
     }
 
-    public void setNum(long num) {
-        this.num = num;
+    public void setNum() {
+        DatabaseManager.databaseReference.child("lectures").child(this.code).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Lecture.this.num = (Long) dataSnapshot.getValue();
+
+                System.out.println(Lecture.this.name + " " + Lecture.this.num);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

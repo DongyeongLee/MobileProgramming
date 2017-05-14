@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.UUID;
 
 public class LectureFragment extends Fragment{
@@ -91,8 +93,7 @@ public class LectureFragment extends Fragment{
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                mLecture.setNum(mLecture.getNum() + 1);
-                                lec_num_TV.setText(""+mLecture.getNum());
+                                DatabaseManager.databaseReference.child("lectures").child(mLecture.getCode()).setValue(mLecture.getNum()+ 1);
                                 Toast.makeText(getActivity(), mLecture.getName() + " 이(가) 수강신청 되었습니다.", Toast.LENGTH_SHORT).show();
                             }
                         })
