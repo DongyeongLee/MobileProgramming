@@ -1,1 +1,2 @@
-# MobileProgramming
+# ACMA
+아주대학교 예비수강신청 어플리케이션
