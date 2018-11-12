@@ -16,4 +16,5 @@
 - [Youtube Link](https://www.youtube.com/watch?v=LXV1cdcZ5gA)
 
 ***
+
 **본 어플리케이션은 데모 버전이며 직접 학교 서버와 연동되지 않습니다.**
